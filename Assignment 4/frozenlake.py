@@ -59,7 +59,7 @@ def main():
                                 max_iter=5000)
         stats_data = vi.run()
         plot_mpd_graph(stats_data,
-                       'VI Frozen_Lake(10x10), Gamma={}, Error plot'.format(gamma),
+                       'VI Frozen_Lake(10x10), Gamma={}, Reward plot'.format(gamma),
                        'Reward',
                        'Reward')
         
@@ -78,7 +78,7 @@ def main():
                                  eval_type=1)
         stats_data = pi.run()
         plot_mpd_graph(stats_data,
-                       'PI Frozen_Lake(10x10), Gamma={}, Error plot'.format(gamma),
+                       'PI Frozen_Lake(10x10), Gamma={}, error plot'.format(gamma),
                        'Error',
                        'Error')
         
@@ -91,30 +91,30 @@ def main():
 
     
     # QLearning
-    for gamma in [0.9, 0.6]:
+    for alpha in [0.1, 0.4]:
         qlearn = mdp.QLearning(transitions=P,
                            reward=R,
-                           gamma=gamma,
-                           alpha=0.1,
+                           gamma=0.6,
+                           alpha=alpha,
                            alpha_decay=0.1,
                            alpha_min=0.0001,
-                           epsilon=0.9,
+                           epsilon=0.1,
                            epsilon_min=0.9,
                            epsilon_decay=0,
                            n_iter=10000)
         stats_data = qlearn.run()
         plot_mpd_graph(stats_data,
-                       'Qlearning Frozen_Lake(10x10),  Gamma={}, Error plot'.format(gamma),
+                       'Qlearning Frozen_Lake(10x10),  alpha={}, Error plot'.format(alpha),
                        'Error',
                        'Error')
         
         plot_mpd_graph(stats_data,
-               'Qlearning Frozen_Lake(10x10),  Gamma={}, Reward plot'.format(gamma),
+               'Qlearning Frozen_Lake(10x10),  alpha={}, Reward plot'.format(alpha),
                'Reward',
                'Reward')
         
         plot_mpd_graph(stats_data,
-                       'Qlearning Frozen_Lake(10x10),  Gamma={}, Time PLot'.format(gamma),
+                       'Qlearning Frozen_Lake(10x10),  alpha={}, Time PLot'.format(alpha),
                        'Time(seconds)',
                        'Time')
 

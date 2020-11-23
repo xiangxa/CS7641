@@ -59,7 +59,7 @@ def main():
                                 max_iter=5000)
         stats_data = vi.run()
         plot_mpd_graph(stats_data,
-                       'VI Frozen_Lake(40x40), Gamma={}, Error plot'.format(gamma),
+                       'VI Frozen_Lake(40x40), Gamma={}, Reward plot'.format(gamma),
                        'Reward',
                        'Reward')
         
@@ -78,7 +78,7 @@ def main():
                                  eval_type=1)
         stats_data = pi.run()
         plot_mpd_graph(stats_data,
-                       'PI Frozen_Lake(40x40), Gamma={}, Error plot'.format(gamma),
+                       'PI Frozen_Lake(40x40), Gamma={}, error plot'.format(gamma),
                        'Error',
                        'Error')
         
@@ -98,7 +98,7 @@ def main():
                            alpha=0.1,
                            alpha_decay=0.1,
                            alpha_min=0.0001,
-                           epsilon=0.9,
+                           epsilon=0.1,
                            epsilon_min=0.9,
                            epsilon_decay=0,
                            n_iter=10000)
