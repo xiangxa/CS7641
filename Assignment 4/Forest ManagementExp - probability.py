@@ -99,7 +99,7 @@ def getPlotsForForestQl():
 	ql_time = []
 	ql_iter = []
 
-	forest = ForestMng(states=1000, reward_wait=4, reward_cut=2, prob_fire=0.3)
+	forest = ForestMng(states=1000, reward_wait=4, reward_cut=2 prob_fire=0.3)
 
 	for lRate in lRates:
 		for epsilon in epsilons:
@@ -138,9 +138,9 @@ def getPlotsForForestQl():
 				elCntr += 1
 	plt.ylabel('Convergence', fontsize=12)
 	plt.xlabel('Iter.', fontsize=12)
-	plt.title('Error Convergence vs Iteration for Forest Mng State 1000 prob_fire 0.3', fontsize=12, y=1.03)
+	plt.title('Error Convergence vs Iteration for Forest Mng State 1000 fire = 0.3', fontsize=12, y=1.03)
 	plt.legend()
-	plt.savefig('Figures/Forest/Convergence vs Iteration for Forest Mng, QL State 1000 prob_fire 0.3.png')
+	plt.savefig('Figures/Forest/Convergence vs Iteration for Forest Mng, QL State 1000.png')
 	plt.close()
 
 	elCntr = 0
@@ -158,9 +158,9 @@ def getPlotsForForestQl():
 			elCntr += 1
 	plt.ylabel('Reward', fontsize=12)
 	plt.xlabel('Iter.', fontsize=12)
-	plt.title('Reward vs Iteration for Forest Mng state 1000 p03', fontsize=12, y=1.03)
+	plt.title('Reward vs Iteration for Forest Mng state 1000', fontsize=12, y=1.03)
 	plt.legend()
-	plt.savefig('Figures/Forest/Reward vs Iteration for Forest Mng, QL State 1000 p03.png')
+	plt.savefig('Figures/Forest/Reward vs Iteration for Forest Mng, QL State 1000.png')
 	plt.close()
 
 

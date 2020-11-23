@@ -92,8 +92,8 @@ def findBestPolicyForForest():
 
 def getPlotsForForestQl():
 	iters = range(1, 21, 1)
-	lRates = [x for x in [0.8, 0.9]]
-	epsilons = [x for x in [0.8, 0.9]]
+	lRates = [x for x in [0.3, 0.7]]
+	epsilons = [x for x in [0.1, 0.6]]
 	ql_rewards = []
 	ql_error = []
 	ql_time = []
@@ -105,7 +105,7 @@ def getPlotsForForestQl():
 		for epsilon in epsilons:
 			# Q-Learning
 			q_learning = QLearner.QLearningEx(forest.P, forest.R, grid=np.zeros(shape=(15, 1)), start=0, goals=[14],
-											  n_iter=1000, n_restarts=1000, alpha=lRate, gamma=0.9, rar=epsilon,
+											  n_iter=2000, n_restarts=1000, alpha=lRate, gamma=0.9, rar=epsilon,
 											  radr=0.999999)
 			q_learning.run()
 			ql_rewards.append(q_learning.episode_reward)
@@ -128,12 +128,12 @@ def getPlotsForForestQl():
 	plt.style.use('seaborn-whitegrid')
 	for lRate in lRates:
 		for epsilon in epsilons:
-			if lRate == 0.8:
-				plt.plot(range(0, 1000)[::10], ql_error[elCntr][::10],
+			if lRate == 0.7:
+				plt.plot(range(0, 2000)[::10], ql_error[elCntr][::10],
 						 label='a: ' + str(lRate) + ', e: ' + str(epsilon))
 				elCntr += 1
 			else:
-				plt.plot(range(0, 1000)[::10], ql_error[elCntr][::10],
+				plt.plot(range(0, 2000)[::10], ql_error[elCntr][::10],
 						 label='a: ' + str(lRate) + ', e: ' + str(epsilon), linestyle='--')
 				elCntr += 1
 	plt.ylabel('Convergence', fontsize=12)
@@ -149,11 +149,11 @@ def getPlotsForForestQl():
 	plt.style.use('seaborn-whitegrid')
 	for lRate in lRates:
 		for epsilon in epsilons:
-			if lRate == 0.8:
-				plt.plot(range(0, 1000)[::10], ql_rewards[elCntr][::10],
+			if lRate == 0.7:
+				plt.plot(range(0, 2000)[::10], ql_rewards[elCntr][::10],
 						 label='a: ' + str(lRate) + ', e: ' + str(epsilon))
 			else:
-				plt.plot(range(0, 1000)[::10], ql_rewards[elCntr][::10],
+				plt.plot(range(0, 2000)[::10], ql_rewards[elCntr][::10],
 						 label='a: ' + str(lRate) + ', e: ' + str(epsilon), linestyle='--')
 			elCntr += 1
 	plt.ylabel('Reward', fontsize=12)

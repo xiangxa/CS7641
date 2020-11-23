@@ -64,7 +64,7 @@ def findBestPolicyForForest():
 	plt.plot(vi_iter[0], vi_error[0], label='VI')
 	plt.ylabel('Convergence', fontsize=12)
 	plt.xlabel('Iter.', fontsize=12)
-	plt.title('Convergence of Error vs Iteration for Forest Mng State 1000 gamma 06', fontsize=12, y=1.03)
+	plt.title('Convergence of Error vs Iteration for Forest Mng State 1000 gamma 0.6', fontsize=12, y=1.03)
 	plt.legend()
 	plt.savefig('Figures/Forest/Error Convergence vs Iteration for Forest Mng state 1000 gamma 06.png')
 	plt.close()
@@ -84,16 +84,16 @@ def findBestPolicyForForest():
 	plt.plot(vi_iter[0], vi_time[0], label='VI')
 	plt.ylabel('Time', fontsize=12)
 	plt.xlabel('Iter.', fontsize=12)
-	plt.title('Time vs Iteration for Forest Mng state 1000 gamma 06', fontsize=12, y=1.03)
+	plt.title('Time vs Iteration for Forest Mng state 1000 gamma 0.6', fontsize=12, y=1.03)
 	plt.legend()
-	plt.savefig('Figures/Forest/Time vs Iteration for Forest Mng  state 1000 gamma 06.png')
+	plt.savefig('Figures/Forest/Time vs Iteration for Forest Mng  state 1000 gamma 0.6.png')
 	plt.close()
 
 
 def getPlotsForForestQl():
 	iters = range(1, 21, 1)
-	lRates = [x for x in [0.8, 0.9]]
-	epsilons = [x for x in [0.8, 0.9]]
+	lRates = [x for x in [0.3, 0.7]]
+	epsilons = [x for x in [0.1, 0.6]]
 	ql_rewards = []
 	ql_error = []
 	ql_time = []
@@ -128,7 +128,7 @@ def getPlotsForForestQl():
 	plt.style.use('seaborn-whitegrid')
 	for lRate in lRates:
 		for epsilon in epsilons:
-			if lRate == 0.8:
+			if lRate == 0.7:
 				plt.plot(range(0, 1000)[::10], ql_error[elCntr][::10],
 						 label='a: ' + str(lRate) + ', e: ' + str(epsilon))
 				elCntr += 1
@@ -138,7 +138,7 @@ def getPlotsForForestQl():
 				elCntr += 1
 	plt.ylabel('Convergence', fontsize=12)
 	plt.xlabel('Iter.', fontsize=12)
-	plt.title('Error Convergence vs Iteration for Forest Mng State 1000 gamma 06', fontsize=12, y=1.03)
+	plt.title('Error Convergence vs Iteration for Forest Mng State 1000 gamma 0.6', fontsize=12, y=1.03)
 	plt.legend()
 	plt.savefig('Figures/Forest/Convergence vs Iteration for Forest Mng, QL State 1000 gamma 06.png')
 	plt.close()
@@ -149,7 +149,7 @@ def getPlotsForForestQl():
 	plt.style.use('seaborn-whitegrid')
 	for lRate in lRates:
 		for epsilon in epsilons:
-			if lRate == 0.8:
+			if lRate == 0.7:
 				plt.plot(range(0, 1000)[::10], ql_rewards[elCntr][::10],
 						 label='a: ' + str(lRate) + ', e: ' + str(epsilon))
 			else:
@@ -158,9 +158,9 @@ def getPlotsForForestQl():
 			elCntr += 1
 	plt.ylabel('Reward', fontsize=12)
 	plt.xlabel('Iter.', fontsize=12)
-	plt.title('Reward vs Iteration for Forest Mng state 20', fontsize=12, y=1.03)
+	plt.title('Reward vs Iteration for Forest Mng state 1000 gamma 0.6', fontsize=12, y=1.03)
 	plt.legend()
-	plt.savefig('Figures/Forest/Reward vs Iteration for Forest Mng, QL State 200.png')
+	plt.savefig('Figures/Forest/Reward vs Iteration for Forest Mng, QL State 1000 gamma0.6.png')
 	plt.close()
 
 
